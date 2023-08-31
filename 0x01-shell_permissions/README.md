@@ -2,3 +2,4 @@
 1. Who am I: This script prints the username of the current user
 2. Groups: This script prints all the groups the current user if part of.
 3. New owner: This script changes the owner of the file hello to the user betty
+4. Empty!: This script creates an empty file called hello.
