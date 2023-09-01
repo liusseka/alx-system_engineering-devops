@@ -10,3 +10,4 @@
 9. John Doe: This script sets the mode of the file hello to -rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
 10. Look in the mirror: This script sets the mode of the file hello the same as olleh's mode
 11. Directories: this script adds execute permisions to all subdirectories of the current directory for all groups, while ignoring regular files.
+12. More directories: This script creates a directory called my_dir with permissions 751 in the working directory
