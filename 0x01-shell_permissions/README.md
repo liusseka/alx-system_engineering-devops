@@ -12,3 +12,4 @@
 11. Directories: this script adds execute permisions to all subdirectories of the current directory for all groups, while ignoring regular files.
 12. More directories: This script creates a directory called my_dir with permissions 751 in the working directory
 13. Change group: this script changes the group owner to school for the file hello
+14. Owner and group: this script changes the owner to vincent and the group owner to staff for all the files and directories in the working directory.
