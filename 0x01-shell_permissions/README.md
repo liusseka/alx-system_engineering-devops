@@ -15,3 +15,4 @@
 14. Owner and group: this script changes the owner to vincent and the group owner to staff for all the files and directories in the working directory.
 15. Symbolic links: The script changes the owner and the group owner of _hello to vincent and staff respectivly _hello is a symbolic link.
 16. If only: This script changes the owner of the file hello to betty only if it is owned by the user guillaume
+17. Star Wars: this script will play the StarWars IV episode in the terminal
