@@ -14,3 +14,4 @@
 13. Change group: this script changes the group owner to school for the file hello
 14. Owner and group: this script changes the owner to vincent and the group owner to staff for all the files and directories in the working directory.
 15. Symbolic links: The script changes the owner and the group owner of _hello to vincent and staff respectivly _hello is a symbolic link.
+16. If only: This script changes the owner of the file hello to betty only if it is owned by the user guillaume
