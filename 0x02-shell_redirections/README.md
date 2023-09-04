@@ -22,3 +22,4 @@ Words should be sorted
 18. Letters only please: Display all lines of the file /etc/ssh/sshd_config starting with a letter.
 19. A to Z: The script replaces all characters A and c from input to Z and e respectively.
 20. Without C, you would live in hiago: The script that removes all letters c and C from input.
+21. esreveR: The script reverse its input.
