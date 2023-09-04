@@ -21,3 +21,4 @@ Words should be sorted
 17. I hate bins: The script will display all the lines in the file /etc/passwd that do not contain the pattern “bin”.
 18. Letters only please: Display all lines of the file /etc/ssh/sshd_config starting with a letter.
 19. A to Z: The script replaces all characters A and c from input to Z and e respectively.
+20. Without C, you would live in hiago: The script that removes all letters c and C from input.
