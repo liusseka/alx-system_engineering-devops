@@ -23,3 +23,4 @@ Words should be sorted
 19. A to Z: The script replaces all characters A and c from input to Z and e respectively.
 20. Without C, you would live in hiago: The script that removes all letters c and C from input.
 21. esreveR: The script reverse its input.
+22. DJ Cut Killer: The script displays all users and their home directories, sorted by users.
