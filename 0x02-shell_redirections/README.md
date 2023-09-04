@@ -6,3 +6,4 @@
 5. I'd prefer the first ones actually: The script displays the first 10 lines of /etc/passwd
 6. Line #2: the script displays the third line of the file iactia
 7. It is a good file that cuts iron without making a noise: The shell script creates a file named exactly \*\\'"Best School"\'\\*$\?\*\*\*\*\*:) containing the text Best School ending by a new line.
+8. Save current state of directory: the script writes into the file ls_cwd_content the result of the command ls -la. If the file ls_cwd_content already exists, it should be overwritten. If the file ls_cwd_content does not exist, create it.
