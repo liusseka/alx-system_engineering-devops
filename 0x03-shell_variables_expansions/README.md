@@ -5,3 +5,4 @@
 **4-global_variables:-** The script lists environment variables.
 **5-local_variables:-** The script lists all local variables and environment variables, and functions.
 **6-create_local_variable:-** The script creates a new local variable
+**7-create_global_variable:-** The script creates a global variable
