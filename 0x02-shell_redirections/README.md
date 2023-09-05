@@ -25,3 +25,4 @@ Words should be sorted
 21. esreveR: The script reverse its input.
 22. DJ Cut Killer: The script displays all users and their home directories, sorted by users.
 23. Empty casks make the most noise:- The script finds all empty files and directories in the current directory and all sub-directories.
+24. A gif is worth ten thousand words:- The script lists all the files with a .gif extension in the current directory and all its sub-directories.
