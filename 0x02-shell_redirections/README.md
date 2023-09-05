@@ -24,3 +24,4 @@ Words should be sorted
 20. Without C, you would live in hiago: The script that removes all letters c and C from input.
 21. esreveR: The script reverse its input.
 22. DJ Cut Killer: The script displays all users and their home directories, sorted by users.
+23. Empty casks make the most noise:- The script finds all empty files and directories in the current directory and all sub-directories.
