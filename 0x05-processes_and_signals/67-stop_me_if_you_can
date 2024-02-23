@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Find the PID of the process named "4-to_infinity_and_beyond"
 
-pid=$(pgrep -f "4-to_infinity_and_beyond")
+pid=$(pgrep -f "7-highlander")
 
-pkill -TERM "$pid"
+kill -TERM "$pid"
+
+
+
