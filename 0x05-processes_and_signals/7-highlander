@@ -2,7 +2,6 @@
 # Function to handle SIGTERM signal
 sigterm_handler() {
     echo "I am invincible!!!"
-    exit
 }
 
 # Trap SIGTERM signal and call sigterm_handler function
