@@ -7,12 +7,13 @@ if ARGV.length != 1
 end
 
 # Retrieve the text to search from the command-line
-text_to_search = ARGV[0]
+text = ARGV[0]
 
 # The simple regular expression to match the word "School"
-regex = /School/
+regex = /\bSchool\b/
 
 # Check for a match within the provided text
-if text_to_search =~ regex
-  puts text_to_search
-end
+matches = text.scan(regex)
+
+# Output all matches found
+puts matches.join('')
