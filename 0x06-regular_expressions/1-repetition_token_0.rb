@@ -6,7 +6,7 @@ if ARGV.length != 1
 end
 
 text = ARGV[0]
-regex = /hbtn(t*)/
+regex = ^(.).*(.).*\1$
 
 if text =~ regex
   puts text
