@@ -1,0 +1,16 @@
+#!/bin/bash
+# Pings provided address 5 times
+
+# Check if an argument is provided
+if [[ -z "$1" ]]; then
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+    exit 1  # Optional: Exit with an error code
+fi
+
+# Ping the provided IP address 5 times
+ping -c 5 "$1"
+
+# Check the exit status of ping to provide a conclusion
+if [[ !$? -eq 0 ]]; then
+    echo "Host $1 may be down or unreachable."
+fi
