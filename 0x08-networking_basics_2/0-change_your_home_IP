@@ -1,7 +1,5 @@
 #!/bin/bash
+# Changes address for localhost and facebook
 
-# 1. Ensure localhost resolves to 127.0.0.2
-echo "127.0.0.2 localhost" >> /etc/hosts
+sudo sed -i.bak 's/^127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' /etc/hosts
 
-# 2. Force resolution of facebook.com to 8.8.8.8
-echo "8.8.8.8 facebook.com" >> /etc/hosts
