@@ -1,11 +1,4 @@
 #!/bin/bash
+# Displays listening ports
 
-# TCP Output
-echo "Active Internet connections (only servers)"
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
-netstat -nltp | awk 'NR>2 {printf "%-6s %-7s %-7s %-23s %-23s %-11s %s\n", $1, $2, $3, $4, $5, $6, $7}'
-
-# UDP Output
-echo "Active Internet connections (only servers)"
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
-netstat -nlpu | awk 'NR>2 {printf "%-6s %-7s %-7s %-23s %-23s %-11s %s\n", $1, $2, $3, $4, $5, $6, $7}'
+netstat -l --program

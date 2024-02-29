@@ -1,0 +1,8 @@
+#!/bin/bash
+# script that displays all active IPv4 IPs on the machine it’s executed on.
+
+# Get all IPv4 addresses associated with active network interfaces
+ipv4_addresses=$(ip -o -4 addr show scope global | awk '{print $4}' | cut -d/ -f1)
+
+# Print the IPv4 addresses
+echo "$ipv4_addresses"
