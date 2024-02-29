@@ -2,6 +2,6 @@
 
 input_string = ARGV[0]
 
-matches = input_string.scan(/hbt{2,5}n/)
+matches = input_string.scan(/hbt+n/)
 
 puts matches.join
