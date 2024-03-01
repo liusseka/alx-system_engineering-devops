@@ -11,6 +11,6 @@ fi
 ping -c 5 "$1"
 
 # Check the exit status of ping to provide a conclusion
-if [[ !$? -eq 0 ]]; then
+if [[ ! $? -eq 0 ]]; then
     echo "Host $1 may be down or unreachable."
 fi
