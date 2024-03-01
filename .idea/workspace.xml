@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c07d9a3-e613-4fc7-9188-a36bd81d74eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/0x07-networking_basics/5-is_the_host_on_the_network" beforeDir="false" afterPath="$PROJECT_DIR$/0x07-networking_basics/5-is_the_host_on_the_network" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,7 @@
       <workItem from="1709106240234" duration="12000" />
       <workItem from="1709226177563" duration="6136000" />
       <workItem from="1709234750896" duration="1629000" />
-      <workItem from="1709277537838" duration="279000" />
+      <workItem from="1709277537838" duration="533000" />
     </task>
     <servers />
   </component>

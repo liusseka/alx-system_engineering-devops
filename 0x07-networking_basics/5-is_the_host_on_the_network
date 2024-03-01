@@ -10,7 +10,10 @@ fi
 # Ping the provided IP address 5 times
 ping -c 5 "$1"
 
+# Store the exit status of the ping command
+PING_EXIT_STATUS=$?
+
 # Check the exit status of ping to provide a conclusion
-if [[ ! $? -eq 0 ]]; then
+if [[ ! PING_EXIT_STATUS -eq 0 ]]; then
     echo "Host $1 may be down or unreachable."
 fi
