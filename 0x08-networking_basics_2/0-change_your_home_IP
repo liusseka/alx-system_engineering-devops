@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 # Changes address for localhost and facebook
 
-sudo sed -i.bak 's/^127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' /etc/hosts
+# Create a temporary file to store the modified hosts entries
+temp_file=$(mktemp)
+
+# Modify the hosts entries and write them to the temporary file
+echo "127.0.0.2 localhost" > "$temp_file"
+echo "8.8.8.8 facebook.com" >> "$temp_file"
+
+# Replace the original hosts file with the modified one
+sudo cp "$temp_file" /etc/hosts
+
+# Clean up the temporary file
+rm "$temp_file"
 
