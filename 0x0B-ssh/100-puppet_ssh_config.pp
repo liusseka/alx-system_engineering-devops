@@ -1,4 +1,7 @@
-# Updating my config file
+# Updating my config file using puppet
+# remove the need to use password
+# focus on using rsa stored in school
+
 include stdlib
 
 file_line { 'Turn off passwd auth':
