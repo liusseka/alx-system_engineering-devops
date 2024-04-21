@@ -1,7 +1,4 @@
 # Updating my config file using puppet
-# remove the need to use password
-# focus on using rsa stored in school
-
 include stdlib
 
 # this code block disables password authentication
