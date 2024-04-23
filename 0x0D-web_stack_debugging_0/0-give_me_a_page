@@ -2,7 +2,9 @@
 # This runs apache on a designated docker container
 
 # Making changes to conf file
-echo "ServerName localhost" >> /etc/apache2.conf
+# This addresses the issues affecting the apache server
+echo 'ServerName localhost' >> /etc/apache2.conf
 
-# restarting apache
+# Restarting apache
+# This ensures the changes take effect
 service apache2 start
