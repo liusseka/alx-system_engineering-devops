@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This runs apache on a designated docker container
+
+# Making changes to conf file
+echo "ServerName localhost" >> /etc/apache2.conf
+
+# restarting apache
+service apache2 start
