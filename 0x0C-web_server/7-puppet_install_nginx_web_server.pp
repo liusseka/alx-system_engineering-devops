@@ -45,7 +45,7 @@ file { '/var/www/html/404.html':
   content => "Ceci n'est pas une page\n",
 }
 
-# STEP 8: Configuring the web server
+# STEP 7: Configuring the web server
 # Adds redirection and error page
 file { 'Nginx default config file':
   ensure  => file,
@@ -74,14 +74,14 @@ file { 'Nginx default config file':
 }
 ",
 }
-# STEP 9: Restarting the nginx webserver
+# STEP 8: Restarting the nginx webserver
 # This applies the configuration changes.
 exec { 'restart service':
   command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin',
 }
 
-# STEP 10: Starting the Nginx service
+# STEP 9: Starting the Nginx service
 # Ensures the Nginx service is running.
 service { 'nginx':
   ensure  => running,
