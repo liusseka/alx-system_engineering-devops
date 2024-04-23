@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# installs and configure nginx to listen on port 80
+
+# Updates the system first
+sudo apt-get -y update
+
+# Downloads and installs Nginx
+sudo apt-get -y install nginx
+
+# Prints hell world on web page
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+
+# starts Nginx
+sudo service nginx start
