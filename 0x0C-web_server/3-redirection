@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Install and Configure Nginx
+
+# Update kernel
+sudo apt-get -y update
+
+# Install nginx, if not installed
+sudo apt-get -y install nginx
+
+# Allow Nginx collection
+sudo ufw allow 'Nginx HTTP'
+
+# Replace home page with hello world
+echo "Hello World" | sudo tee /var/www/html/index
+
+# redirect 301 permanently
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.github.com/cjmatheka/ permanent;' /etc/nginx/sites-available/default
+
+# restart nginx server
+sudo service nginx restart
