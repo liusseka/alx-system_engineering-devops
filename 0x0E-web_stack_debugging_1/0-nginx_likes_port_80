@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-                                                                                                                                      
+#!/usr/bin/env bash                                                                                                                                 
 # Identify and fix nginx listening on port 80                                                                       
 cd /etc/nginx/sites-enabled/ || exit;
 
