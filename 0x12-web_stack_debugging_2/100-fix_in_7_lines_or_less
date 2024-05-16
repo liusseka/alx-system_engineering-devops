@@ -1,17 +1,7 @@
 #!/usr/bin/env bash
 # The script runs Nginx as nginx
-
-# First kills apache2 process
 pkill apache2
-
-# changes server to listen to port 8080
 sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-
-# changes ownership and group
 chown nginx:nginx /etc/nginx/nginx.conf
-
-# changes permissions and ownership
 chown 755 /etc/nginx/nginx.conf
-
-# restarts nginx
 sudo -u nginx service nginx restart
