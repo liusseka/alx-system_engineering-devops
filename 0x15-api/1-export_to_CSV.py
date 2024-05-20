@@ -6,14 +6,14 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    user_id = sys.argv[1]
+    id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + f"users/{user_id}").json()
+    user = requests.get(url + f"users/{id}").json()
     username = user.get(f"username")
-    todos = requests.get(url + f"todos", params={f"userId": user_id}).json()
+    todos = requests.get(url + f"todos", params={f"userId": id}).json()
 
-    with open(f"{user_id}.csv", f"w", newline="") as csvfile:
+    with open(f"{id}.csv", f"w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         [writer.writerow(
-            [user_id, username, t.get(f"completed"), t.get(f"title")]
+            [id, username, t.get(f"completed"), t.get(f"title")]
          ) for t in todos]
