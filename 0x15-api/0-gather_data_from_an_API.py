@@ -12,7 +12,7 @@ if __name__ == "__main__":
         params={"userId": sys.argv[1]}).json()
 
     completed = [t.get("title") for t in to_dos if t.get("completed") is True]
-    print(f"Employee {employee.get("name")}"
+    print(f"Employee {employee.get('name')}"
         f"is done with tasks({len(completed)}/{len(to_dos)}):")
 
     [print("\t {}".format(c)) for c in completed]
