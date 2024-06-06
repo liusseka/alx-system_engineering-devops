@@ -9,16 +9,18 @@ def number_of_subscribers(subreddit):
 	"""
 	Returns number of subcribers
 
-	Args: takes a subreddit title
+	Args:
+	   takes a subreddit title
 
-	Returns: Number of Subscribers
+	Returns:
+	   Number of Subscribers
 	"""
 	if subreddit is None or type(subreddit) if not str:
 		return 0
 
 	url = f'https://www.reddit.com/r/{subreddit}/about.json'
 	headers = {
-	"User-Agent": "SubredditSubscriberCounter/1.0"
+	"User-Agent": "SubredditSubscriberCounter/v.1.0"
 	}
 
 	try:
