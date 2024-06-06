@@ -1,26 +1,17 @@
 #!/usr/bin/python3
-"""
-The Script that Queries a Reddit API
-"""
+"""The Script that Queries a Reddit API"""
 
 import requests
 
 def number_of_subscribers(subreddit):
-	"""
-	Returns number of subcribers
-
-	Args:
-	   takes a subreddit title
-
-	Returns:
-	   Number of Subscribers
-	"""
+	"""Returns number of subcribers"""
 	if subreddit is None or type(subreddit) if not str:
 		return 0
 
 	url = f'https://www.reddit.com/r/{subreddit}/about.json'
 	headers = {
-	"User-Agent": "SubredditSubscriberCounter/v.1.0"
+	"User-Agent": "0x16-api_advanced:project:\
+v1.0.0 (by /u/Julius_Charles"
 	}
 
 	try:
