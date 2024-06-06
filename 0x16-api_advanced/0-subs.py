@@ -9,11 +9,19 @@
 import requests
 
 def number_of_subscribers(subreddit):
-    """Takes a subreddit and returns the number of subscribers """
-    if subreddit is None or type(subreddit) is not str:
-        return 0
-    r = requests.get(f'http://www.reddit.com/r/{subreddit}/about.json',
-                     headers={'User-Agent': '0x16-api_advanced:project:\
-v1.0.0 (by /u/firdaus_cartoon_jr)'}).json()
-    subs = r.get("data", {}).get("subscribers", 0)
-    return subs
+	"""Returns number of subcribers"""
+	if subreddit is None or type(subreddit) if not str:
+		return 0
+
+	url = f'https://www.reddit.com/r/{subreddit}/about.json'
+	headers = {
+	"User-Agent": "SubredditSubscriberCounter/1.0"
+	}
+
+	try:
+		res = requests.get(url, headers=headers, allow_redirects=False)
+		data = res.json()
+		return data['data']['subscribers']
+
+	except requests.exceptions.RequestException:
+		return 0
