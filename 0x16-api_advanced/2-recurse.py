@@ -5,6 +5,9 @@ import requests
 
 def recurse(subreddit, hot_list=[], after="", count=0):
     """Returns a list of titles of all hot posts on a given subreddit."""
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
+
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "0x16-api_advanced:project:v1.0.0"
@@ -14,7 +17,7 @@ def recurse(subreddit, hot_list=[], after="", count=0):
         "count": count,
         "limit": 100
     }
-    
+
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
     if response.status_code == 404:

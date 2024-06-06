@@ -5,6 +5,9 @@ import requests
 
 def top_ten(subreddit):
     """Print the titles of the 10 hottest posts on a given subreddit."""
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
+
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "0x16-api_advanced:project:v1.0.0"
