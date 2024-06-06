@@ -8,7 +8,7 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "0x16-api_advanced:project:\
-v1.0.0 (by /u/Julius_Charles)"
+v1.0.0 (by /u/julius_charles)"
     }
     params = {
         "limit": 10
