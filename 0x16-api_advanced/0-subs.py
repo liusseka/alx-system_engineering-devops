@@ -17,8 +17,8 @@ def number_of_subscribers(subreddit):
     }
 
     try:
-        response = requests.get(url, headers=headers, allow_redirects=False)
-        response.raise_for_status()
+        resp = requests.get(url, headers=headers, allow_redirects=False)
+        resp.raise_for_status()
 
         data = response.json()
 
