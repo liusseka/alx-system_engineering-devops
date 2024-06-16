@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Set variables for better customization
+BACKUP_USER="root"
+BACKUP_PASSWORD="${1}"
+BACKUP_DIR="/var/backups/mysql"  
+DATE=$(date +"%Y-%m-%d")       
+FILENAME="mysql_backup_${DATE}.tar.gz"
+
+# Ensure backup directory exists
+mkdir -p "${BACKUP_DIR}"
+
+# Perform the backup
+mysqldump --all-databases -u "${BACKUP_USER}" --password="${BACKUP_PASSWORD}" > "${BACKUP_DIR}/backup.sql"
+cd "${BACKUP_DIR}"
+tar -czvf "${FILENAME}" backup.sql
