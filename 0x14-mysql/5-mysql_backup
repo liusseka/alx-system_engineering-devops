@@ -1,36 +1,8 @@
 #!/usr/bin/env bash
 # Backs up and compresses for all databases
-
-# Check if the password is provided
-if [ -z "$1" ]; then
-  echo "ERROR: MySQL root password is required as an argument."
-  exit 1  
-fi
-
-# Define variables
-BACKUP_USER="root"
-BACKUP_PASSWORD="$1"
-BACKUP_FILE="backup.sql"
-TIMESTAMP=$(date +"%d-%m-%Y")
-ARCHIVE_NAME="${TIMESTAMP}.tar.gz"
-
-# Function to check if a command succeeds and handle errors
-execute_command() {
-  "$@"
-  if [ $? -ne 0 ]; then
-    echo "ERROR: Command failed: $*"
-    exit 1
-  fi
-}
-
-# Generate the MySQL dump
-echo "Creating MySQL dump..."
-execute_command mysqldump --all-databases -u "${BACKUP_USER}" --password="${BACKUP_PASSWORD}" > "${BACKUP_FILE}"
-
-# Compress the dump into a tar.gz archive
-echo "Compressing the dump..."
-execute_command tar -czvf "${ARCHIVE_NAME}" "${BACKUP_FILE}"
-
-# Show completion message
-echo "Backup completed successfully. Archive saved as: ${ARCHIVE_NAME}"
-
+mysqldump --all-databases -u root --password="$1" > backup.sql
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%Y")
+file_name="$day-$month-$year.tar.gz"
+tar -czvf "$file_name" backup.sql
