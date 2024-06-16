@@ -1,16 +1,35 @@
-#!/bin/bash
+#!/bin/env bash
 
-# Set variables for better customization
+# Check if the password is provided
+if [ -z "$1" ]; then
+  echo "ERROR: MySQL root password is required as an argument."
+  exit 1  
+fi
+
+# Define variables
 BACKUP_USER="root"
-BACKUP_PASSWORD="${1}"
-BACKUP_DIR="/var/backups/mysql"  
-DATE=$(date +"%Y-%m-%d")       
-FILENAME="mysql_backup_${DATE}.tar.gz"
+BACKUP_PASSWORD="$1"
+BACKUP_FILE="backup.sql"
+TIMESTAMP=$(date +"%d-%m-%Y")
+ARCHIVE_NAME="${TIMESTAMP}.tar.gz"
 
-# Ensure backup directory exists
-mkdir -p "${BACKUP_DIR}"
+# Function to check if a command succeeds and handle errors
+execute_command() {
+  "$@"
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Command failed: $*"
+    exit 1
+  fi
+}
 
-# Perform the backup
-mysqldump --all-databases -u "${BACKUP_USER}" --password="${BACKUP_PASSWORD}" > "${BACKUP_DIR}/backup.sql"
-cd "${BACKUP_DIR}"
-tar -czvf "${FILENAME}" backup.sql
+# Generate the MySQL dump
+echo "Creating MySQL dump..."
+execute_command mysqldump --all-databases -u "${BACKUP_USER}" --password="${BACKUP_PASSWORD}" > "${BACKUP_FILE}"
+
+# Compress the dump into a tar.gz archive
+echo "Compressing the dump..."
+execute_command tar -czvf "${ARCHIVE_NAME}" "${BACKUP_FILE}"
+
+# Show completion message
+echo "Backup completed successfully. Archive saved as: ${ARCHIVE_NAME}"
+
