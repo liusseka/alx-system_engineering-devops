@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Backs up and compresses for all databases
 
 # Check if the password is provided
 if [ -z "$1" ]; then
