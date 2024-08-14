@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Works as a recursive functions"""
+
 import requests
 
 def recurse(subreddit, hot_list=[], after=None):

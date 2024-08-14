@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Returns top 10 subscribers"""
 
 import requests
 
