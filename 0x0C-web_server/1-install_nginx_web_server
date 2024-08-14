@@ -10,6 +10,10 @@ sudo apt-get -y install nginx
 # Allow Nginx collection
 sudo ufw allow 'Nginx HTTP'
 
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
 # Prints hell world on web page
 sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
