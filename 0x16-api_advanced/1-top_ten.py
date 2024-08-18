@@ -1,29 +1,33 @@
 #!/usr/bin/python3
-"""Contains top_ten function"""
+"""Returns top 10 subscribers"""
+
 import requests
 
-
 def top_ten(subreddit):
-    """Print the titles of the 10 hottest posts on a given subreddit."""
-    if subreddit is None or not isinstance(subreddit, str):
-        return 0
+  """
+  This function queries the Reddit API for the titles of the top 10 hot posts in a subreddit.
 
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    headers = {
-        "User-Agent": "0x16-api_advanced:project:v1.0.0"
-    }
-    params = {
-        "limit": 10
-    }
+  Args:
+      subreddit (str): The name of the subreddit to query.
+  """
+  url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10" 
+  headers = {'User-Agent': 'My Reddit API Script 1.0'} 
 
-    resp = requests.get(url,
-                        headers=headers,
-                        params=params,
-                        allow_redirects=False)
+  try:
+    response = requests.get(url, allow_redirects=False, headers=headers)
+    response.raise_for_status() 
 
-    if response.status_code == 404:
-        print("None")
-        return
+    data = response.json()
+    posts = data.get('data', {}).get('children', [])
 
-    results = response.json().get("data")
-    [print(c.get("data").get("title")) for c in results.get("children")]
+    if not posts:
+      print(None) 
+      return
+
+    for post in posts:
+      title = post['data'].get('title')
+      if title:
+        print(title)
+
+  except requests.exceptions.RequestException:
+    print(None) 

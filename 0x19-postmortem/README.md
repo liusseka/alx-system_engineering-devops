@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Postmortem: Web Stack Outage Due to Database Deadlock
 
 ## Issue Summary (For the Execs)
@@ -46,3 +47,6 @@
 + Let's learn from this and make our systems even more resilient! 💪
 
 
+=======
+## 0x19-postmortem  
+>>>>>>> 22f09c8d3b3f7bf37c493a6f6d3195a4f75d9207

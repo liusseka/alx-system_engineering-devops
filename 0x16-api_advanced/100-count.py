@@ -1,49 +1,49 @@
 #!/usr/bin/python3
-""" Module for a function that queries the Reddit API recursively."""
+"""
+Module for a function that queries the Reddit API recursively.
+"""
 
 import requests
 
 
-def count_words(subreddit, word_list, after='', word_dict={}):
-    """ A function that queries the Reddit API parses the title of
-    all hot articles, and prints a sorted count of given keywords
-    (case-insensitive, delimited by spaces.
-    Javascript should count as javascript, but java should not).
-    If no posts match or the subreddit is invalid, it prints nothing.
+def count_words(subreddit, word_list, after='', word_dict=None):
     """
-
-    if not word_dict:
-        for word in word_list:
-            if word.lower() not in word_dict:
-                word_dict[word.lower()] = 0
+    Queries the Reddit API, parses the titles of all hot articles,
+    and prints a sorted count of given keywords (case-insensitive).
+    
+    - Keywords are case-insensitive and delimited by spaces.
+    - "Javascript" should count as "javascript", but "java" should not.
+    - If no posts match or the subreddit is invalid, it prints nothing.
+    """
+    if word_dict is None:
+        word_dict = {word.lower(): 0 for word in word_list}
 
     if after is None:
-        wordict = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
-        for word in wordict:
-            if word[1]:
-                print('{}: {}'.format(word[0], word[1]))
-        return None
+        sorted_word_dict = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
+        for word, count in sorted_word_dict:
+            if count > 0:
+                print(f'{word}: {count}')
+        return
 
-    base_url = f'https://www.reddit.com/r/{subreddit}/hot/.json'
-    header = {'user-agent': 'redquery'}
-    parameters = {'limit': 100, 'after': after}
-    response = requests.get(base_url, headers=header, params=parameters,
-                            allow_redirects=False)
+    url = f'https://www.reddit.com/r/{subreddit}/hot/.json'
+    headers = {'User-Agent': 'redquery'}
+    params = {'limit': 100, 'after': after}
+    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
 
     if response.status_code != 200:
-        return None
+        return
 
     try:
-        hot = response.json()['data']['children']
-        aftr = response.json()['data']['after']
-        for post in hot:
-            title = post['data']['title']
-            lower = [word.lower() for word in title.split(' ')]
+        data = response.json()['data']
+        posts = data['children']
+        after = data['after']
 
-            for word in word_dict.keys():
-                word_dict[word] += lower.count(word)
+        for post in posts:
+            title_words = post['data']['title'].lower().split()
+            for word in word_dict:
+                word_dict[word] += title_words.count(word)
 
-    except Exception:
-        return None
+    except (KeyError, ValueError):
+        return
 
-    count_words(subreddit, word_list, aftr, word_dict)
+    count_words(subreddit, word_list, after, word_dict)
