@@ -1,4 +1,5 @@
-# This script inceases the limit of the requests that can be served by the nginx server
+# This script inceases the limit of the requests that
+# can be served by the nginx server
 
 # Increase the ULIMIT
 exec { 'fix--for-nginx':
